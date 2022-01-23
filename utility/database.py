@@ -33,7 +33,14 @@ class DB:
             return True
         else:
             return False
+    
+    def existPath():
+        config_file = open("config.json")
+        configuration = json.load(config_file)
 
-
+        if path.exists(configuration['database_path']):
+            return True
+        else:
+            return False
 
 
