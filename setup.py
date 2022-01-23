@@ -7,6 +7,8 @@ import json
 from cryptography.fernet import Fernet
 
 def createDatabase() -> bool:
+    if not DB.existPath():
+        os.mkdir('db')
     if not DB.existDB():
         try:
             con = DB.getDbConnection()
