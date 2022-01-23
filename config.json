@@ -1,0 +1,7 @@
+{
+    "application": "PYWDManager",
+    "ver": "1.0",
+    "key_path": "db/key.bin",
+    "database_name": "sqlite_pywd.db",
+    "database_path": "db/"
+}
