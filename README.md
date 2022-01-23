@@ -18,5 +18,4 @@ it will create for you database and key file.
 
 after that you can access to application by '''> python PYWDManager.py'''
 
-# Note: i've created this as a personal project to have a personal "wallet" to store my password and to trying the python cryptography functionality.
-# I DON'T take any responsibility for any malfunctions and problems. This application is considered as aplha stage so be careful. 
+## Note: i've created this as a personal project to have a personal "wallet" to store my password and to trying the python cryptography functionality.I DON'T take any responsibility for any malfunctions and problems. This application is considered as aplha stage so be careful. 
