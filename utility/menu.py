@@ -7,6 +7,8 @@ import os
 from os import path
 import json
 from cryptography.fernet import Fernet
+
+from tabulate import tabulate
 ########## MENU & FUNCTIONALITY SECTION ##########
 # This class initialize and define the user menu #
 ##################################################
@@ -73,8 +75,7 @@ class Menu:
 
                     plain_password = a_credential.decryptPwd()
                     
-                    print('| Service | Email | Username | Password | Secret Question | Secret Answer | Last Update |')
-                    print("| {0} | {1} | {2} | {3} | {4} | {5} | {6} |".format(row['service_name'],row['email'],row['username'], plain_password,row['secret_question'],row['secret_answer'],row['last_update']))
+                    print(tabulate([[row['service_name'],row['email'],row['username'], plain_password,row['secret_question'],row['secret_answer'],row['last_update']]], headers=['Service', 'Email','Username', 'Password', 'Secret Question', 'Secret Answer', 'Last Update'], tablefmt='orgtbl'))
                     
                 #commit need to validate the query excecution
                 con.close()
@@ -110,8 +111,8 @@ class Menu:
 
                     plain_password = a_credential.decryptPwd()
                     
-                    print('| Service | Email | Username | Password | Secret Question | Secret Answer | Last Update |')
-                    print("| {0} | {1} | {2} | {3} | {4} | {5} | {6} |".format(row['service_name'],row['email'],row['username'], plain_password,row['secret_question'],row['secret_answer'],row['last_update']))
+                    print(tabulate([[row['service_name'],row['email'],row['username'], plain_password,row['secret_question'],row['secret_answer'],row['last_update']]], headers=['Service', 'Email','Username', 'Password', 'Secret Question', 'Secret Answer', 'Last Update'], tablefmt='orgtbl'))
+                    
                     
                 #commit need to validate the query excecution
                 #if input("Do you want to generate your password? Y/n ") == "Y":
@@ -145,7 +146,6 @@ class Menu:
 
                 rows = cur.execute('''SELECT * FROM pywd_credentials''').fetchall()
 
-                print('| Service | Email | Username | Password | Secret Question | Secret Answer | Last Update |')
                 for row in rows:
                     a_credential = Credential()
                     
@@ -159,8 +159,8 @@ class Menu:
 
                     plain_password = a_credential.decryptPwd()
 
-                    print("| {0} | {1} | {2} | {3} | {4} | {5} | {6} |".format(row['service_name'],row['email'],row['username'],plain_password,row['secret_question'],row['secret_answer'],row['last_update']))
-                    print("-------------------------------------------")
+                    print(tabulate([[row['service_name'],row['email'],row['username'], plain_password,row['secret_question'],row['secret_answer'],row['last_update']]], headers=['Service', 'Email','Username', 'Password', 'Secret Question', 'Secret Answer', 'Last Update'], tablefmt='orgtbl'))
+                    
                 #commit need to validate the query excecution
                 con.close()
             except Error as e:
